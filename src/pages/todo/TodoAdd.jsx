@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { TodoContext } from "../../contexts/TodoContext";
 
 const initTodo = {
   id: 0,
@@ -11,7 +12,8 @@ const initTodo = {
   privacy: 0,
 };
 
-function TodoAdd({ todoList, setTodoList, countId, setCountId }) {
+function TodoAdd() {
+  const { addTodo } = useContext(TodoContext);
   // useState 화면 리랜더링
   const [todo, setTodo] = useState(initTodo);
   // Params로 id를 추출하세요.
@@ -25,16 +27,9 @@ function TodoAdd({ todoList, setTodoList, countId, setCountId }) {
     });
   };
 
-  const postTodo = () => {
-    console.log("todo ", todo);
-    const newTodoData = [...todoList, { ...todo, id: countId }];
-    setTodoList(newTodoData);
-    setCountId(++countId);
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
-    postTodo();
+    addTodo(todo);
     alert("내용이 추가되었습니다.");
     navigate(`/todo`);
   };

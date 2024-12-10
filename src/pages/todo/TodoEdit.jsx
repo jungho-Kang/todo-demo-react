@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { TodoContext } from "../../contexts/TodoContext";
 
-function TodoEdit({ todoList, setTodoList }) {
+function TodoEdit() {
+  const { todoList, updateTodo } = useContext(TodoContext);
   // useState 화면 리랜더링
   const [todo, setTodo] = useState({});
   // Params로 id를 추출하세요.
@@ -25,22 +27,9 @@ function TodoEdit({ todoList, setTodoList }) {
     });
   };
 
-  const postTodo = () => {
-    console.log("todo ", todo);
-    const newTodoData = todoList.map(item => {
-      if (todo.id === item.id) {
-        return todo;
-      } else {
-        return item;
-      }
-    });
-
-    setTodoList(newTodoData);
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
-    postTodo();
+    updateTodo(todo);
     alert("내용이 수정되었습니다.");
     navigate(`/todo/detail?id=${todo.id}`);
   };

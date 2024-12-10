@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { TodoContext } from "../../contexts/TodoContext";
 
-const TodoItem = ({ item, deleteTodo }) => {
+const TodoItem = ({ item }) => {
+  const { deleteTodo } = useContext(TodoContext);
   // Link: 삭제, 자세히 보기 버튼
   // 제목, 작성자, 날짜
   // 제목을 클릭하면 상세페이지로 이동하세요.

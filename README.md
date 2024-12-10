@@ -30,14 +30,12 @@ todo-demo-react
 ├─ package-lock.json
 ├─ package.json
 ├─ public
-│  └─ vite.svg
 ├─ README.md
 ├─ src
 │  ├─ apis
 │  ├─ App.css
 │  ├─ App.jsx
 │  ├─ assets
-│  │  └─ react.svg
 │  ├─ components
 │  │  ├─ basic
 │  │  │  ├─ Footer.jsx
@@ -46,6 +44,9 @@ todo-demo-react
 │  │  └─ todo
 │  │     └─ TodoItem.jsx
 │  ├─ constants
+│  │  └─ mockdata.js
+│  ├─ contexts
+│  │  └─ TodoContext.jsx
 │  ├─ index.css
 │  ├─ main.jsx
 │  ├─ pages
