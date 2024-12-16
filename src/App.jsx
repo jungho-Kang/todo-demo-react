@@ -13,6 +13,7 @@ import Join from "./pages/member/Join";
 import LoginPage from "./pages/member/LoginPage";
 import Schedule from "./pages/schedule/Schedule";
 import RangeSchedule from "./pages/schedule/RangeSchedule";
+import Full from "./calendar/Full";
 
 function App() {
   // state의 제일 좋은 위치
@@ -34,6 +35,8 @@ function App() {
                 <Route path="/schedule" element={<Schedule />} />
                 {/* 일정 */}
                 <Route path="/range" element={<RangeSchedule />} />
+                {/* 풀 캘린더 */}
+                <Route path="/full" element={<Full />} />
                 {/* Todo 중첩 */}
                 <Route path="/todo">
                   <Route index element={<TodoIndex />}></Route>
